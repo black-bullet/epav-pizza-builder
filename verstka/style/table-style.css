@@ -1,0 +1,173 @@
+
+input[type=text]::-webkit-input-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+input[type=text]::-moz-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+input[type=text]:-moz-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+input[type=text]:-ms-input-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+textarea[type=text]::-webkit-input-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+textarea[type=text]::-moz-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+textarea[type=text]:-moz-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+textarea[type=text]:-ms-input-placeholder, text-area::-webkit-input-placeholder{
+  color: #7c8d87;
+}
+textarea::-webkit-input-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+textarea::-moz-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+textarea:-moz-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+textarea:-ms-input-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+textarea:focus::-webkit-input-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: transparent;
+}
+input::-webkit-input-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+input::-moz-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+input:-moz-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+input:-ms-input-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: #7c8d87;
+}
+input:focus::-webkit-input-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: transparent;
+}
+input:focus::-moz-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: transparent;
+}
+input:focus:-ms-input-placeholder {
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  color: transparent;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: 'Roboto Condensed', sans-serif;
+  -webkit-text-size-adjust: none;
+}
+.globalWrapper {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+.resize {
+  position: relative;
+  padding: 0px 25px;
+  max-width: 980px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cf:after,
+.cf:before {
+  content: '';
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  zoom: 1;
+}
+.fll {
+  float: left;
+}
+.flr {
+  float: right;
+}
