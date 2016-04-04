@@ -26,6 +26,13 @@ class Ingredient
     private $id;
 
     /**
+     * @var ArrayCollection|OrderIngredient[] $orderIngredients Order Ingredients
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\OrderIngredient", mappedBy="ingredient", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $orderIngredients;
+
+    /**
      * @var ArrayCollection|PresetIngredient[] $presetIngredients Preset Ingredients
      *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\PresetIngredient", mappedBy="ingredient", cascade={"persist", "remove"}, orphanRemoval=true)
@@ -48,6 +55,7 @@ class Ingredient
      *
      * @ORM\Column(type="float", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $priceBig;
@@ -57,6 +65,7 @@ class Ingredient
      *
      * @ORM\Column(type="float", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $priceMedium;
@@ -66,6 +75,7 @@ class Ingredient
      *
      * @ORM\Column(type="float", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $priceSmall;
@@ -75,6 +85,7 @@ class Ingredient
      *
      * @ORM\Column(type="integer", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $layer;
@@ -85,6 +96,7 @@ class Ingredient
     public function __construct()
     {
         $this->presetIngredients = new ArrayCollection();
+        $this->orderIngredients  = new ArrayCollection();
     }
 
     /**
@@ -266,5 +278,56 @@ class Ingredient
     public function getPresetIngredients()
     {
         return $this->presetIngredients;
+    }
+
+    /**
+     * Set preset ingredients
+     *
+     * @param ArrayCollection|PresetIngredient[] $presetIngredients Preset Ingredient
+     *
+     * @return $this
+     */
+    public function setOrderIngredients(ArrayCollection $presetIngredients)
+    {
+        foreach ($presetIngredients as $presetIngredient) {
+            $presetIngredient->setIngredient($this);
+        }
+        $this->presetIngredients = $presetIngredients;
+
+        return $this;
+    }
+
+    /**
+     * Add orderIngredients
+     *
+     * @param OrderIngredient $orderIngredients Order Ingredient
+     *
+     * @return Ingredient
+     */
+    public function addOrderIngredient(OrderIngredient $orderIngredients)
+    {
+        $this->orderIngredients[] = $orderIngredients;
+
+        return $this;
+    }
+
+    /**
+     * Remove orderIngredients
+     *
+     * @param OrderIngredient $orderIngredients Order Ingredient
+     */
+    public function removeOrderIngredient(OrderIngredient $orderIngredients)
+    {
+        $this->orderIngredients->removeElement($orderIngredients);
+    }
+
+    /**
+     * Get orderIngredients
+     *
+     * @return ArrayCollection
+     */
+    public function getOrderIngredients()
+    {
+        return $this->orderIngredients;
     }
 }
