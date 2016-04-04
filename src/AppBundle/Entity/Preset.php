@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -25,6 +26,13 @@ class Preset
     private $id;
 
     /**
+     * @var ArrayCollection|PresetIngredient[] $presetIngredients Preset Ingredients
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PresetIngredient", mappedBy="preset", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $presetIngredients;
+
+    /**
      * @var string $name Name
      *
      * @ORM\Column(type="string", length=255, nullable=false)
@@ -34,6 +42,14 @@ class Preset
      * @Assert\Type(type="string")
      */
     private $name;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->eventGroups = new ArrayCollection();
+    }
 
     /**
      * Get ID
@@ -67,5 +83,56 @@ class Preset
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set preset ingredients
+     *
+     * @param ArrayCollection|PresetIngredient[] $presetIngredients Preset Ingredient
+     *
+     * @return $this
+     */
+    public function setPresetIngredients(ArrayCollection $presetIngredients)
+    {
+        foreach ($presetIngredients as $presetIngredient) {
+            $presetIngredient->setPreset($this);
+        }
+        $this->presetIngredients = $presetIngredients;
+
+        return $this;
+    }
+
+    /**
+     * Add presetIngredients
+     *
+     * @param PresetIngredient $presetIngredients Preset Ingredient
+     *
+     * @return $this
+     */
+    public function addPresetIngredient(PresetIngredient $presetIngredients)
+    {
+        $this->presetIngredients[] = $presetIngredients;
+
+        return $this;
+    }
+
+    /**
+     * Remove presetIngredients
+     *
+     * @param PresetIngredient $presetIngredients Preset Ingredient
+     */
+    public function removePresetIngredient(PresetIngredient $presetIngredients)
+    {
+        $this->presetIngredients->removeElement($presetIngredients);
+    }
+
+    /**
+     * Get presetIngredients
+     *
+     * @return ArrayCollection|PresetIngredient[] Preset Ingredient
+     */
+    public function getPresetIngredients()
+    {
+        return $this->presetIngredients;
     }
 }
