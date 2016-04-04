@@ -48,6 +48,7 @@ class Ingredient
      *
      * @ORM\Column(type="float", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $priceBig;
@@ -57,6 +58,7 @@ class Ingredient
      *
      * @ORM\Column(type="float", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $priceMedium;
@@ -66,6 +68,7 @@ class Ingredient
      *
      * @ORM\Column(type="float", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $priceSmall;
@@ -75,6 +78,7 @@ class Ingredient
      *
      * @ORM\Column(type="integer", nullable=false)
      *
+     * @Assert\NotBlank()
      * @Assert\Type(type="float")
      */
     private $layer;
