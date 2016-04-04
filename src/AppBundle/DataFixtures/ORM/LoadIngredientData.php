@@ -1,6 +1,6 @@
 <?php
 
-namespace MainBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Ingredient;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -23,7 +23,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(14)
             ->setPriceBig(28)
             ->setLayer(1);
-        $this->setReference('', $ingredient1);
+        $this->setReference('ingredient1', $ingredient1);
         $manager->persist($ingredient1);
 
         $ingredient2 = (new Ingredient())
@@ -32,7 +32,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(19)
             ->setPriceBig(38)
             ->setLayer(2);
-        $this->setReference('', $ingredient2);
+        $this->setReference('ingredient2', $ingredient2);
         $manager->persist($ingredient2);
 
         $ingredient3 = (new Ingredient())
@@ -41,7 +41,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(14)
             ->setPriceBig(28)
             ->setLayer(3);
-        $this->setReference('', $ingredient3);
+        $this->setReference('ingredient3', $ingredient3);
         $manager->persist($ingredient3);
 
         $ingredient4 = (new Ingredient())
@@ -50,8 +50,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(11)
             ->setPriceBig(22)
             ->setLayer(4);
-        $this->setReference('', $ingredient4);
-        $manager->persist($ingredient1);
+        $this->setReference('ingredient4', $ingredient4);
+        $manager->persist($ingredient4);
 
         $ingredient5 = (new Ingredient())
             ->setName('Помідори')
@@ -59,7 +59,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(10)
             ->setPriceBig(20)
             ->setLayer(5);
-        $this->setReference('', $ingredient5);
+        $this->setReference('ingredient5', $ingredient5);
         $manager->persist($ingredient5);
 
         $ingredient6 = (new Ingredient())
@@ -68,7 +68,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(9)
             ->setPriceBig(11)
             ->setLayer(6);
-        $this->setReference('', $ingredient6);
+        $this->setReference('ingredient6', $ingredient6);
         $manager->persist($ingredient6);
 
         $ingredient7 = (new Ingredient())
@@ -77,7 +77,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(4.5)
             ->setPriceBig(9)
             ->setLayer(7);
-        $this->setReference('', $ingredient7);
+        $this->setReference('ingredient7', $ingredient7);
         $manager->persist($ingredient7);
 
         $ingredient8 = (new Ingredient())
@@ -86,7 +86,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(10)
             ->setPriceBig(20)
             ->setLayer(8);
-        $this->setReference('', $ingredient8);
+        $this->setReference('ingredient8', $ingredient8);
         $manager->persist($ingredient8);
 
         $ingredient9 = (new Ingredient())
@@ -95,16 +95,16 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(9)
             ->setPriceBig(18)
             ->setLayer(9);
-        $this->setReference('', $ingredient9);
+        $this->setReference('ingredient9', $ingredient9);
         $manager->persist($ingredient9);
 
         $ingredient10 = (new Ingredient())
-            ->setName('Гриби')
+            ->setName('Шампіньйони')
             ->setPriceSmall(4.5)
             ->setPriceMedium(9)
             ->setPriceBig(18)
             ->setLayer(10);
-        $this->setReference('', $ingredient10);
+        $this->setReference('ingredient10', $ingredient10);
         $manager->persist($ingredient10);
 
         $ingredient11 = (new Ingredient())
@@ -113,7 +113,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(16)
             ->setPriceBig(32)
             ->setLayer(11);
-        $this->setReference('', $ingredient11);
+        $this->setReference('ingredient11', $ingredient11);
         $manager->persist($ingredient11);
 
         $ingredient12 = (new Ingredient())
@@ -122,7 +122,7 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceMedium(13)
             ->setPriceBig(26)
             ->setLayer(12);
-        $this->setReference('', $ingredient12);
+        $this->setReference('ingredient12', $ingredient12);
         $manager->persist($ingredient12);
 
         $manager->flush();
