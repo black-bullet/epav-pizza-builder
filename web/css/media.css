@@ -1,0 +1,75 @@
+@media screen and (min-width: 1300px){
+    .container table{
+        font-size: 3vh;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 979px) {
+    .builderWrapper .chooseBlock{
+        max-width: 320px;
+    }
+    .builderWrapper .chooseBlock label{
+        font-size: 20px;
+        padding-top: 14px;
+    }
+    .builderWrapper .chooseBlock input[type=checkbox]{
+        width: 28px;
+        height: 28px;
+    }
+    .builderWrapper .chooseBlock .totalBlock h2{
+        font-size: 22px;
+        max-width: 320px;
+    }
+    .totalBlock input{
+        max-width: 320px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 840px) {
+    .builderWrapper .viewBlock{
+        float: none;
+        margin: 25px auto;
+    }
+    .builderWrapper .chooseBlock{
+        float: none;
+        margin: 25px auto;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    .navWrapper .presets{
+        height: auto;
+        line-height: 1.5;
+    }
+    .navWrapper ul li{
+        float: none;
+    }
+    .navWrapper .size{
+        height: auto;
+        line-height: 1.5;
+        width: 60%;
+        padding-top: 10px;
+        margin: 10px auto 0px;
+        border-top: 1px solid #7c8d87;
+    }
+    .builderWrapper .chooseBlock label{
+        margin-left: 9px;
+    }
+    .builderWrapper .chooseBlock {
+        width: 100%;
+    }
+    .totalBlock input{
+        max-width: 320px;
+    }
+    .builderWrapper .viewBlock{
+        width: 90%;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 370px) {
+    .resize{
+        padding: 0px 10px;
+    }
+    .builderWrapper .chooseBlock .totalBlock h2{
+        max-width: 300px;
+    }
+    .totalBlock input{
+        max-width: 300px;
+    }
+}

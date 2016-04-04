@@ -19,7 +19,10 @@ class TableType extends AbstractType
     {
         $builder
             ->add('name', 'choice', [
-                'label'   => 'Номер столу',
+                'label'   => 'Виберіть номер столика',
+                'attr' => [
+                    'class' => 'table_checker'
+                ],
                 'choices' => [
                     1  => 1,
                     2  => 2,
@@ -30,7 +33,7 @@ class TableType extends AbstractType
                     7  => 7,
                     8  => 8,
                     9  => 9,
-                    10 => 10,
+                    10 => 10
                 ],
             ]);
     }
