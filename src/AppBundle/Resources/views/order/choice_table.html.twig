@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="form_center">
     {{ form_start(form) }}
         {{ form_rest(form) }}
     {{ form_end(form) }}
-    <a href="{{ path('create_order', { 'table': 1}) }}">Замовити</a>
+    <a class="goto_order_link" href="{{ path('create_order', { 'table': 1}) }}">Замовити</a>
+</div>
 {% endblock %}

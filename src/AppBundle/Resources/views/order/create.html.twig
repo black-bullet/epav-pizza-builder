@@ -1,6 +1,90 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="globalWrapper">
+        <div class="firstWrapper cf">
+            <div class="resize cf">
+                <div class="logo">
+                    <a href="#">
+                        <img src="/img/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="members">
+                    <h2>Євген</h2>
+                    <h2>Петро</h2>
+                    <h2>Андрій</h2>
+                    <h2>Віталій</h2>
+                </div>
+            </div>
+        </div>
+        <div class="navWrapper cf">
+            <div class="resize cf">
+                <div class="presets cf">
+                    <ul>
+                        <li>
+                            <a href="#" class="active">Зроби сам</a>
+                        </li><!--
+						--><li>
+                            <a href="#">Маргарита</a>
+                        </li><!--
+						--><li>
+                            <a href="#">Челентано</a>
+                        </li><!--
+						--><li>
+                            <a href="#">Капоне</a>
+                        </li>
+                    </ul>
+                    <div id="select"></div>
+                </div>
+                <div class="size cf">
+                    <ul>
+                        <li>
+                            <a href="#">Маленька</a>
+                        </li><!--
+						--><li>
+                            <a href="#" class="active">Середня</a>
+                        </li><!--
+						--><li>
+                            <a href="#">Велика</a>
+                        </li>
+                    </ul>
+                    <div id="selectSize"></div>
+                </div>
+            </div>
+        </div>
+        <div class="builderWrapper cf">
+            <div class="resize cf">
+                <div class="viewBlock">
+                    <div class="pizza" id="pizza">
+                        {% for ingredient in ingredients %}
+                            <div class="item" id="ingradient{{ ingredient.layer }}_view">
+                                <img src="/img/pizza_assets/{{ ingredient.pictureName }}" alt="">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="chooseBlock">
+                    <form action="">
+                        {% for ingredient in ingredients %}
+                            <input type="checkbox" name="ingradient{{ ingredient.id }}" id="ingradient{{ ingredient.layer }}"
+                                   data-small-price="{{ ingredient.priceSmall }}"
+                                   data-medium-price="{{ ingredient.priceMedium }}"
+                                   data-large-price="{{ ingredient.priceBig }}">
+                            <label for="ingradient{{ ingredient.layer }}" id="lbl{{ ingredient.layer }}">
+                                <span class="nick">{{ ingredient.name }}</span><span class="price"><span class="price_val">{{ ingredient.priceMedium }}</span> грн</span>
+                            </label>
+                        {% endfor %}
+                        <div class="cf"></div>
+                        <div class="totalBlock">
+                            <h2><span class="word">Всього : </span><span id="total">111 грн</span></h2>
+                            <input type="text" name="name" id="name" placeholder="Ваше ім'я">
+                            <input type="submit" value="Замовити" id="order" class="hvr-wobble-bottom">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     {{ dump(ingredients) }}
     {% for ingredient in ingredients %}
         <p>{{ ingredient.name }}</p>
