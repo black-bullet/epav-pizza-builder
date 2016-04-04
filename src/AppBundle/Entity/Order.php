@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\DBAL\Types\StatusType;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
@@ -25,6 +26,13 @@ class Order
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var ArrayCollection|OrderIngredient[] $orderIngredients Order Ingredients
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\OrderIngredient", mappedBy="order", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $orderIngredients;
 
     /**
      * @var string $cakeSize Cake size
@@ -71,6 +79,14 @@ class Order
      * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\StatusType")
      */
     private $status;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->orderIngredients = new ArrayCollection();
+    }
 
     /**
      * Get ID
@@ -200,5 +216,56 @@ class Order
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set order ingredients
+     *
+     * @param ArrayCollection|OrderIngredient[] $orderIngredients Order Ingredient
+     *
+     * @return $this
+     */
+    public function setPresetIngredients(ArrayCollection $orderIngredients)
+    {
+        foreach ($orderIngredients as $orderIngredient) {
+            $orderIngredient->setOrder($this);
+        }
+        $this->orderIngredients = $orderIngredients;
+
+        return $this;
+    }
+
+    /**
+     * Add orderIngredients
+     *
+     * @param OrderIngredient $orderIngredients Order Ingredient
+     *
+     * @return $this
+     */
+    public function addOrderIngredient(OrderIngredient $orderIngredients)
+    {
+        $this->orderIngredients[] = $orderIngredients;
+
+        return $this;
+    }
+
+    /**
+     * Remove orderIngredients
+     *
+     * @param OrderIngredient $orderIngredients Order Ingredient
+     */
+    public function removeOrderIngredient(OrderIngredient $orderIngredients)
+    {
+        $this->orderIngredients->removeElement($orderIngredients);
+    }
+
+    /**
+     * Get orderIngredients
+     *
+     * @return ArrayCollection
+     */
+    public function getOrderIngredients()
+    {
+        return $this->orderIngredients;
     }
 }
