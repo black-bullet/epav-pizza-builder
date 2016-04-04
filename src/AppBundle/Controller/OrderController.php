@@ -2,12 +2,16 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Ingredient;
+use AppBundle\Entity\Preset;
 use AppBundle\Form\Type\TableType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * OrderController class
@@ -66,6 +70,41 @@ class OrderController extends Controller
         return $this->render('AppBundle:order:create.html.twig', [
             'ingredients' => $ingredients,
             'presets'     => $presets,
+        ]);
+    }
+
+    /**
+     * Ajax for ingredients in preset
+     *
+     * @param Request $request Request
+     *
+     * @throws BadRequestHttpException
+     *
+     * @return Preset[]
+     *
+     * @Route("/preset-ingredients", name="event_filters")
+     */
+    public function ajaxPresetIngredient(Request $request)
+    {
+        if (!$request->isXmlHttpRequest()) {
+            throw new BadRequestHttpException('Не правильний запит');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $ingredientsId = [];
+        $preset      = $em->getRepository('AppBundle:Preset')->find($request->query->get('preset'));
+        $ingredients = $em->getRepository('AppBundle:Ingredient')->findIngredientByPreset($preset);
+
+        /** @var Ingredient $ingredient */
+        foreach($ingredients as $ingredient){
+            $ingredientsId[] = $ingredient->getId();
+        }
+
+        return new JsonResponse([
+            'status'      => true,
+            'message'     => 'Success',
+            'ingredients' => $ingredientsId,
         ]);
     }
 }
