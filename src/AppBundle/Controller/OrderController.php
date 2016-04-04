@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\DBAL\Types\StatusType;
 use AppBundle\Entity\Ingredient;
+use AppBundle\Entity\Order;
 use AppBundle\Entity\Preset;
 use AppBundle\Form\Type\TableType;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -82,7 +84,7 @@ class OrderController extends Controller
      *
      * @return Preset[]
      *
-     * @Route("/preset-ingredients", name="preset-ingredients-order")
+     * @Route("/ajax-preset-ingredients", name="ajax-preset-ingredients-order")
      */
     public function ajaxPresetIngredient(Request $request)
     {
@@ -118,7 +120,7 @@ class OrderController extends Controller
      *
      * @return float
      *
-     * @Route("/pizza-price", name="pizza-price-order")
+     * @Route("/ajax-pizza-price", name="ajax-pizza-price-order")
      */
     public function ajaxPizzaPizza(Request $request)
     {
@@ -135,6 +137,48 @@ class OrderController extends Controller
             'status'  => true,
             'message' => 'Success',
             'price'   => $price,
+        ]);
+    }
+
+    /**
+     * Ajax price for pizza
+     *
+     * @param Request $request Request
+     *
+     * @throws BadRequestHttpException
+     *
+     * @return float
+     *
+     * @Route("/ajax-create-order", name="ajax-pizza-create-order")
+     */
+    public function ajaxCreateOrder(Request $request)
+    {
+        if (!$request->isXmlHttpRequest()) {
+            throw new BadRequestHttpException('Не правильний запит');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $table       = $request->query->get('table');
+        $ingredients = $request->query->get('ingredients');
+        $cakeSize    = $request->query->get('cakeSize');
+        $preset      = $request->query->get('preset');
+
+        $price = $this->getPricePizza($ingredients, $cakeSize);
+
+        $order = (new Order())
+            ->setCakeSize($cakeSize)
+            ->setPrice($price)
+            ->setTableNumber($table)
+            ->setPresetName($preset)
+            ->setStatus(StatusType::PREPARING);
+        $em->persist($order);
+
+        $em->flush();
+
+        return new JsonResponse([
+            'status'  => true,
+            'message' => 'Success',
         ]);
     }
 
