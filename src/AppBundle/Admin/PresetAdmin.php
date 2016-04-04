@@ -13,7 +13,8 @@ class PresetAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', 'text', ['label' => 'Назва']);
+            ->add('name', 'text', ['label' => 'Назва'])
+            ->add('presetIngredients');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
