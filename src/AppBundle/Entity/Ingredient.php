@@ -91,6 +91,16 @@ class Ingredient
     private $layer;
 
     /**
+     * @var string $pictureName PictureName
+     *
+     * @ORM\Column(type="string", nullable=false)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="string")
+     */
+    private $pictureName;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -227,6 +237,31 @@ class Ingredient
     public function getLayer()
     {
         return $this->layer;
+    }
+
+
+    /**
+     * Set pictureName
+     *
+     * @param string $pictureName PictureName
+     *
+     * @return $this
+     */
+    public function setPictureName($pictureName)
+    {
+        $this->pictureName = $pictureName;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureName
+     *
+     * @return string PictureName
+     */
+    public function getPictureName()
+    {
+        return $this->pictureName;
     }
 
     /**

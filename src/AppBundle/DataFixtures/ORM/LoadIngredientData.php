@@ -22,7 +22,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(7)
             ->setPriceMedium(14)
             ->setPriceBig(28)
-            ->setLayer(1);
+            ->setLayer(1)
+            ->setPictureName('salami.png');
         $this->setReference('ingredient1', $ingredient1);
         $manager->persist($ingredient1);
 
@@ -31,7 +32,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(9.5)
             ->setPriceMedium(19)
             ->setPriceBig(38)
-            ->setLayer(2);
+            ->setLayer(2)
+            ->setPictureName('sausages.png');
         $this->setReference('ingredient2', $ingredient2);
         $manager->persist($ingredient2);
 
@@ -40,7 +42,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(7)
             ->setPriceMedium(14)
             ->setPriceBig(28)
-            ->setLayer(3);
+            ->setLayer(3)
+            ->setPictureName('chicken.png');
         $this->setReference('ingredient3', $ingredient3);
         $manager->persist($ingredient3);
 
@@ -49,7 +52,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(5.5)
             ->setPriceMedium(11)
             ->setPriceBig(22)
-            ->setLayer(4);
+            ->setLayer(4)
+            ->setPictureName('paprika.png');
         $this->setReference('ingredient4', $ingredient4);
         $manager->persist($ingredient4);
 
@@ -58,7 +62,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(5)
             ->setPriceMedium(10)
             ->setPriceBig(20)
-            ->setLayer(5);
+            ->setLayer(5)
+            ->setPictureName('tomatoes.png');
         $this->setReference('ingredient5', $ingredient5);
         $manager->persist($ingredient5);
 
@@ -67,7 +72,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(7)
             ->setPriceMedium(9)
             ->setPriceBig(11)
-            ->setLayer(6);
+            ->setLayer(6)
+            ->setPictureName('bacon.png');
         $this->setReference('ingredient6', $ingredient6);
         $manager->persist($ingredient6);
 
@@ -76,7 +82,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(2.75)
             ->setPriceMedium(4.5)
             ->setPriceBig(9)
-            ->setLayer(7);
+            ->setLayer(7)
+            ->setPictureName('basil.png');
         $this->setReference('ingredient7', $ingredient7);
         $manager->persist($ingredient7);
 
@@ -85,7 +92,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(5)
             ->setPriceMedium(10)
             ->setPriceBig(20)
-            ->setLayer(8);
+            ->setLayer(8)
+            ->setPictureName('pineapple.png');
         $this->setReference('ingredient8', $ingredient8);
         $manager->persist($ingredient8);
 
@@ -94,7 +102,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(4.5)
             ->setPriceMedium(9)
             ->setPriceBig(18)
-            ->setLayer(9);
+            ->setLayer(9)
+            ->setPictureName('corn.png');
         $this->setReference('ingredient9', $ingredient9);
         $manager->persist($ingredient9);
 
@@ -103,7 +112,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(4.5)
             ->setPriceMedium(9)
             ->setPriceBig(18)
-            ->setLayer(10);
+            ->setLayer(10)
+            ->setPictureName('champignon.png');
         $this->setReference('ingredient10', $ingredient10);
         $manager->persist($ingredient10);
 
@@ -112,7 +122,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(8)
             ->setPriceMedium(16)
             ->setPriceBig(32)
-            ->setLayer(11);
+            ->setLayer(11)
+            ->setPictureName('parmesan.png');
         $this->setReference('ingredient11', $ingredient11);
         $manager->persist($ingredient11);
 
@@ -121,7 +132,8 @@ class LoadIngredientData extends AbstractFixture
             ->setPriceSmall(6.5)
             ->setPriceMedium(13)
             ->setPriceBig(26)
-            ->setLayer(12);
+            ->setLayer(12)
+            ->setPictureName('mozzarella.png');
         $this->setReference('ingredient12', $ingredient12);
         $manager->persist($ingredient12);
 
