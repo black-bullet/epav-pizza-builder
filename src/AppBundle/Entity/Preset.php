@@ -135,4 +135,18 @@ class Preset
     {
         return $this->presetIngredients;
     }
+
+    /**
+     * To string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $result = 'New Preset';
+        if (null !== $this->getName()) {
+            $result = $this->getName();
+        }
+        return $result;
+    }
 }

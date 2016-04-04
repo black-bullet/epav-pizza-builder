@@ -101,4 +101,18 @@ class PresetIngredient
     {
         return $this->ingredient;
     }
+
+    /**
+     * To string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $result = 'New Ingredient';
+        if (null !== $this->getIngredient()->getName()) {
+            $result = $this->getIngredient()->getName();
+        }
+        return $result;
+    }
 }
