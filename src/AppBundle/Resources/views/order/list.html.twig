@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="component">
+        <h2>Замовлення</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Столик</th>
+                    <th>Піца</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.tableNumber }}</td>
+                    {% if null==order.presetName %}
+                        <td>{{ order.presetName }}</td>
+                    {% else %}
+                        <td>Своя піца</td>
+                    {% endif %}
+                    <td>{{ order.status|readable_enum }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

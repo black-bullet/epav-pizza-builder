@@ -76,6 +76,22 @@ class OrderController extends Controller
     }
 
     /**
+     * List of order
+     *
+     * @return Response
+     *
+     * @Route("/order/list", name="list_order")
+     */
+    public function listAction()
+    {
+        $orders = $this->getDoctrine()->getRepository('AppBundle:Order')->findAll();
+
+        return $this->render('AppBundle:order:list.html.twig', [
+            'orders' => $orders,
+        ]);
+    }
+
+    /**
      * Ajax for ingredients in preset
      *
      * @param Request $request Request
