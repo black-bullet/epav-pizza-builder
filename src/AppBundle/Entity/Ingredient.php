@@ -36,7 +36,7 @@ class Ingredient
     private $name;
 
     /**
-     * @var float $duration
+     * @var float $priceBig Price of big
      *
      * @ORM\Column(type="float", nullable=false)
      *
@@ -45,7 +45,7 @@ class Ingredient
     private $priceBig;
 
     /**
-     * @var float $duration
+     * @var float $priceMedium Price of medium
      *
      * @ORM\Column(type="float", nullable=false)
      *
@@ -54,13 +54,22 @@ class Ingredient
     private $priceMedium;
 
     /**
-     * @var float $duration
+     * @var float $priceSmall Price of small
      *
      * @ORM\Column(type="float", nullable=false)
      *
      * @Assert\Type(type="float")
      */
     private $priceSmall;
+
+    /**
+     * @var int $layer Layer
+     *
+     * @ORM\Column(type="integer", nullable=false)
+     *
+     * @Assert\Type(type="float")
+     */
+    private $layer;
 
     /**
      * Get ID
@@ -166,5 +175,29 @@ class Ingredient
     public function getPriceSmall()
     {
         return $this->priceSmall;
+    }
+
+    /**
+     * Set layer
+     *
+     * @param int $layer Layer
+     *
+     * @return $this
+     */
+    public function setLayer($layer)
+    {
+        $this->layer = $layer;
+
+        return $this;
+    }
+
+    /**
+     * Get layer
+     *
+     * @return int Layer
+     */
+    public function getLayer()
+    {
+        return $this->layer;
     }
 }
