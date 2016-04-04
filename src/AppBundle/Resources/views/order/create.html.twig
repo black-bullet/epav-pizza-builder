@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ dump(ingredients) }}
+    {% for ingredient in ingredients %}
+        <p>{{ ingredient.name }}</p>
+    {% endfor %}
+
+    {% for preset in presets %}
+        <p>{{ preset.name }}</p>
+    {% endfor %}
+{% endblock %}
